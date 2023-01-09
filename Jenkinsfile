@@ -1,7 +1,7 @@
 pipeline {
     agent {label 'sla'}
     stages {
-        stage('my Build') {
+        stage('my build') {
             steps {
                 sh "echo ${BUILD_VERSION}"
                 sh 'docker build -t tomcat_build:${BUILD_VERSION} --build-arg BUILD_VERSION=${BUILD_VERSION} .'
