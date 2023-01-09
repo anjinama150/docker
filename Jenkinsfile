@@ -1,7 +1,7 @@
 pipeline {
-    agent {label 'sla'}
+    agent {label 'build'}
     stages {
-        stage('my build') {
+        stage('my Build') {
             steps {
                 sh "echo ${BUILD_VERSION}"
                 sh 'docker build -t tomcat_build:${BUILD_VERSION} --build-arg BUILD_VERSION=${BUILD_VERSION} .'
@@ -15,8 +15,8 @@ pipeline {
                 sh 'docker push anjina/myjenkins:${BUILD_VERSION}'
             }
         } 
-        stage( 'my deploy' ) {
-        agent {label 'ansible'} 
+        stage( 'my Deploy' ) {
+        agent {label 'deploy'} 
             steps {
                sh 'docker pull anjina/myjenkins:${BUILD_VERSION}'
                sh 'docker rm -f myjenkins'
