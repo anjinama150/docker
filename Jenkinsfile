@@ -19,7 +19,7 @@ pipeline {
             steps {
                sh 'docker pull anjina/myjenkins:1.0.0'
                sh 'docker rm -f myjenkins'
-               sh 'docker run -d -p 8080:8080 --name myjenkins anjina/myjenkins:1.0.0'
+               sh 'docker run -d -p 8090:8080 --name myjenkins anjina/myjenkins:1.0.0'
             }
         }    
     } 
