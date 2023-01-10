@@ -1,14 +1,14 @@
 <html>
 <head>
-<title>MULTI STAGE</title>
+<title>ARG_AND_ENV</title>
 </head>
 <body>
-	<h1>ASSIGNMENT</h1>
-	<h2>DOCKER FILE</h2>
+	<h1>TODAYCLASS</h1>
+	<h2>DOCKERFILE</h2>
 	<h2>GITHUB</h2>
-	<h2>JENKINS</h2>
-	<h2>MODIFY JENKINSFILE</h2>
-	<h2>DOCKERHUB.signin</h2>
+	<h2>JENKINSFILE</h2>
+	<h2>MODIFYSRC</h2>
+	<h2>DOCKERHUB</h2>
 	<p>
 		It is now
 		<%= new java.util.Date() %></p>
