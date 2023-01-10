@@ -10,7 +10,7 @@ pipeline {
         stage('publish stage') {
             steps {
                 sh "echo ${BUILD_VERSION}"
-                withCredentials([usernamePassword(credentialsId: 'Dockerhub', passwordVariable: 'DockerhubPassword', usernameVariable: 'DockerhubUser')]) {
+                withCredentials([usernamePassword(credentialsId: 'Docker', passwordVariable: 'DockerhubPassword', usernameVariable: 'DockerhubUser')]) {
                 sh "docker login -u ${env.DockerhubUser} -p ${env.DockerhubPassword}"
                 sh 'docker tag tomcat2:${BUILD_VERSION} anjina/myjenkins:${BUILD_VERSION}'
                 sh 'docker push anjina/myjenkins:${BUILD_VERSION}'
