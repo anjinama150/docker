@@ -12,7 +12,7 @@ pipeline {
                 sh "echo ${BUILD_VERSION}"
                 withCredentials([usernamePassword(credentialsId: 'Dockerhub', passwordVariable: 'DockerhubPassword', usernameVariable: 'DockerhubUser')]) {
                 sh "docker login -u ${env.DockerhubUser} -p ${env.DockerhubPassword}"
-                sh 'docker tag tomca:${BUILD_VERSION} anjina/myjenkins:${BUILD_VERSION}'
+                sh 'docker tag tomcat_build:${BUILD_VERSION} anjina/myjenkins:${BUILD_VERSION}'
                 sh 'docker push anjina/myjenkins:${BUILD_VERSION}'
                 }
             }
@@ -22,7 +22,7 @@ pipeline {
             steps {
                sh 'docker pull anjina/myjenkins:${BUILD_VERSION}'
                sh 'docker rm -f myjenkins'
-               sh 'docker run -d -p 8092:8080 --name tomcat anjina/myjenkins:${BUILD_VERSION}'
+               sh 'docker run -d -p 8092:8080 --name mytomcat_1 anjina/myjenkins:${BUILD_VERSION}'
             }
         }    
     } 
