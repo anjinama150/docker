@@ -22,7 +22,7 @@ pipeline {
             steps {
                sh 'docker pull anjina/myjenkins:${BUILD_VERSION}'
                sh 'docker rm -f myjenkins'
-               sh 'docker run -d -p 8092:8080 --name mytomcat_1 anjina/myjenkins:${BUILD_VERSION}'
+               sh 'docker run -d -p 8092:8080 --name mytomcat_2 anjina/myjenkins:${BUILD_VERSION}'
             }
         }    
     } 
